@@ -1,0 +1,39 @@
+# 日本語環境の設定
+export LANG=ja_JP.UTF-8
+export JLESSCHARSET=japanese
+# ls
+alias la="ls -a"
+alias ll="ls -l"
+
+# 補完
+fpath=(/usr/local/share/zsh-completions $fpath)
+# 補完機能を有効にする
+autoload -Uz compinit
+compinit -u
+
+# Zsh オプション
+## ディレクトリ名だけでcdする
+setopt auto_cd
+## cd したら自動的にpushdする
+setopt auto_pushd
+## sudo でも補完の対象
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+## ビープ音を鳴らさないようにする
+setopt no_beep
+## ディレクトリを水色にする｡
+export LS_COLORS='di=01;36'
+## ファイルリスト補完でもlsと同様に色をつける｡
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+## 8 ビット目を通すようになり、日本語のファイル名を表示可能
+setopt print_eight_bit
+##プロンプトの設定
+RPROMPT='%F{2}[%n@%m]'
+PROMPT='%F{2}%~%#%f '
+## Zsh ヒストリの設定
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+#rvmの設定
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

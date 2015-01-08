@@ -1,0 +1,13 @@
+## basic
+[ -f $HOME/dotfile/zsh/_common ] && source $HOME/dotfile/zsh/_common
+ 
+case "${OSTYPE}" in
+# MacOSX
+darwin*)
+  [ -f $HOME/dotfile/zsh/_osx ] && source $HOME/dotfile/zsh/_osx
+  ;;
+# Linux
+linux*)
+  [ -f $HOME/dotfile/zsh/_linux ] && source $HOME/dotfile/zsh/_linux
+  ;;
+esac

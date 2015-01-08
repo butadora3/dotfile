@@ -1,0 +1,10 @@
+# エイリアス
+export EDITOR=emacsclient 
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias emacsnw='emacs -nw'
+alias mylatex='~/./my_latexmk.sh'
+alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
+alias e='emacsclient'
+
+# GNU gcc応急処置
+export MACOSX_DEPLOYMENT_TARGET=10.9
