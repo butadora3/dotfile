@@ -4,7 +4,8 @@ export JLESSCHARSET=japanese
 # ls
 alias la="ls -a"
 alias ll="ls -l"
-
+alias lal="ls -al"
+alias lla="ls -al"
 # 補完
 fpath=(/usr/local/share/zsh-completions $fpath)
 # 補完機能を有効にする
@@ -34,6 +35,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-#rvmの設定
+# rvmの設定
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# HomeとEndのキーのバインドを修正
+#bindkey "${terminfo[khome]}" beginning-of-line
+#bindkey "${terminfo[kend]}" end-of-line

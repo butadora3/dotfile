@@ -1,6 +1,9 @@
 AnsiEsc.vim
+caw.vim
 neobundle.vim
+neocomplete
 neomru.vim
 tcomment_vim
 unite.vim
+vim-indent-guides
 vim-trailing-whitespace
