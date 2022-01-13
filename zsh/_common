@@ -61,3 +61,7 @@ ksec() {
   source <(kubesec completion zsh)
   $0 "$@"
 }
+
+# AWS
+alias instance-list="aws ec2 describe-instances --output table --filters 'Name=instance-state-name,Values=running' --query 'Reservations[].Instances[].{Name:Tags[?Key==\`Name\`] | [0].Value,InstanceId:InstanceId}'"
+alias start-session="aws ssm start-session --target "
