@@ -12,3 +12,10 @@ fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
+
+# anyenv
+eval "$(anyenv init -)"
+
+# terraform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/pc564/.anyenv/envs/tfenv/versions/1.0.4/terraform terraform
