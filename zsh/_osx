@@ -1,21 +1,19 @@
-# エイリアス
-
-# GNU gcc応急処置
-#export MACOSX_DEPLOYMENT_TARGET=10.9
-
 # rmでゴミ箱に入れる
 alias rm='trash'
 
-# zshcomb
-fpath=(/usr/local/share/zsh-completions(N-/) $fpath)
 # home, end, delのキーバインド
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
-# anyenv
-eval "$(anyenv init -)"
+# 補完機能
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-# terraform
+  autoload -Uz compinit
+  compinit
+fi
+
+## terraform
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/pc564/.anyenv/envs/tfenv/versions/1.0.4/terraform terraform
+complete -o nospace -C `which terraform` terraform
