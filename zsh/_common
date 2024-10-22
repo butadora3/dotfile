@@ -23,8 +23,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ## 8 ビット目を通すようになり、日本語のファイル名を表示可能
 setopt print_eight_bit
 ##プロンプトの設定
-RPROMPT='%F{2}[%n@%m]'
-PROMPT='%F{2}%~%#%f '
+PROMPT='%F{2}%~ 
+%#%f '
 ## Zsh ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -67,3 +67,17 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOPATH/bin:$PATH"
 
+# plugins
+plugins=(
+	git
+	autojump
+	zsh-autosuggestions
+
+)
+
+# git
+alias gl="git log --pretty=format:'%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=format-local:'%t%Y/%m/%d %H:%M'  --all --graph"
+alias gbc="git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '\$2~/[gone]/{print \$1}' | xargs git branch -D"
+
+# k8s
+alias k="kubectl"
