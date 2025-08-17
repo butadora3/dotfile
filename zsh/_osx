@@ -20,3 +20,18 @@ complete -o nospace -C `which terraform` terraform
 
 ## zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+## VSCode, Kiro
+ocode() {
+  repo=`ghq list | peco`
+  if [ -n "$repo" ]; then
+    code "`ghq root`/$repo"
+  fi
+}
+
+okiro() {
+  repo=`ghq list | peco`
+  if [ -n "$repo" ]; then
+    kiro "`ghq root`/$repo"
+  fi
+}
