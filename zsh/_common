@@ -87,3 +87,9 @@ kctx() {
     k ctx $kube_context
   fi
 }
+
+# ghq
+alias cdghq='cd $(ghq root)/$(ghq list | peco)'
+
+# mise
+eval "$(mise activate zsh)"
