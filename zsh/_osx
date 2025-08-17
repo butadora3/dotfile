@@ -7,12 +7,8 @@ bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
 # 補完機能
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
+autoload -Uz compinit
+compinit
 
 ## terraform
 autoload -U +X bashcompinit && bashcompinit
