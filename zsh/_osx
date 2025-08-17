@@ -17,3 +17,6 @@ fi
 ## terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C `which terraform` terraform
+
+## zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
