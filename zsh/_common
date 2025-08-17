@@ -81,3 +81,9 @@ alias gbc="git for-each-ref --format '%(refname:short) %(upstream:track)' | awk 
 
 # k8s
 alias k="kubectl"
+kctx() {
+  kube_context=`k ctx | peco`
+  if [ -n "$kube_context" ]; then
+    k ctx $kube_context
+  fi
+}
