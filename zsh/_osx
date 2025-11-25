@@ -7,6 +7,7 @@ bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
 # 補完機能
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit
 compinit
 
