@@ -88,6 +88,9 @@ kctx() {
   fi
 }
 
+## krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # ghq
 alias cdghq='cd $(ghq root)/$(ghq list | peco)'
 
