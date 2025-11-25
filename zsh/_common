@@ -61,6 +61,12 @@ ksec() {
 export AWS_DEFAULT_REGION=ap-northeast-1
 alias instance-list="aws ec2 describe-instances --output table --filters 'Name=instance-state-name,Values=running' --query 'Reservations[].Instances[].{Name:Tags[?Key==\`Name\`] | [0].Value,InstanceId:InstanceId}'"
 alias start-session="aws ssm start-session --target "
+get-aws-prof() {
+  aws_prof=`aws configure list-profiles | peco`
+  if [ -n "$aws_prof" ]; then
+    echo -n $aws_prof | pbcopy
+  fi
+}
 
 ## goenv
 export GOPATH="$HOME/go"
