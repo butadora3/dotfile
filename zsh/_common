@@ -22,8 +22,13 @@ export LS_COLORS='di=01;36'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ## 8 ビット目を通すようになり、日本語のファイル名を表示可能
 setopt print_eight_bit
+## gitブランチ名表示
+autoload -Uz vcs_info
+precmd() { vcs_info }
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '(%b)'
 ##プロンプトの設定
-PROMPT='%F{2}%~ 
+PROMPT='%F{2}%~ ${vcs_info_msg_0_} 
 %#%f '
 ## Zsh ヒストリの設定
 HISTFILE=~/.zsh_history
