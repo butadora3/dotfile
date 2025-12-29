@@ -67,7 +67,7 @@ export AWS_DEFAULT_REGION=ap-northeast-1
 alias instance-list="aws ec2 describe-instances --output table --filters 'Name=instance-state-name,Values=running' --query 'Reservations[].Instances[].{Name:Tags[?Key==\`Name\`] | [0].Value,InstanceId:InstanceId}'"
 alias start-session="aws ssm start-session --target "
 get-aws-prof() {
-  aws_prof=`aws configure list-profiles | peco`
+  aws_prof=`aws configure list-profiles | fzf`
   if [ -n "$aws_prof" ]; then
     echo -n $aws_prof | pbcopy
   fi
@@ -93,7 +93,7 @@ alias gbc="git for-each-ref --format '%(refname:short) %(upstream:track)' | awk 
 # k8s
 alias k="kubectl"
 kctx() {
-  kube_context=`k ctx | peco`
+  kube_context=`k ctx | fzf`
   if [ -n "$kube_context" ]; then
     k ctx $kube_context
   fi
@@ -103,7 +103,7 @@ kctx() {
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # ghq
-alias cdghq='cd $(ghq root)/$(ghq list | peco)'
+alias cdghq='cd $(ghq root)/$(ghq list | fzf)'
 
 # mise
 eval "$(mise activate zsh)"

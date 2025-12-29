@@ -20,21 +20,21 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ## VSCode, Kiro
 ocd() {
-  repo=`ghq list | peco`
+  repo=`ghq list | fzf`
   if [ -n "$repo" ]; then
     cd "`ghq root`/$repo"
   fi
 }
 
 ocode() {
-  repo=`ghq list | peco`
+  repo=`ghq list | fzf`
   if [ -n "$repo" ]; then
     code "`ghq root`/$repo"
   fi
 }
 
 okiro() {
-  repo=`ghq list | peco`
+  repo=`ghq list | fzf`
   if [ -n "$repo" ]; then
     kiro "`ghq root`/$repo"
   fi
