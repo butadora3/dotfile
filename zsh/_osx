@@ -19,6 +19,13 @@ complete -o nospace -C `which terraform` terraform
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ## VSCode, Kiro
+ocd() {
+  repo=`ghq list | peco`
+  if [ -n "$repo" ]; then
+    cd "`ghq root`/$repo"
+  fi
+}
+
 ocode() {
   repo=`ghq list | peco`
   if [ -n "$repo" ]; then
@@ -32,3 +39,6 @@ okiro() {
     kiro "`ghq root`/$repo"
   fi
 }
+
+## HomeBrew
+HOMEBREW_BUNDLE_FILE="~/dotfile/brew/Brewfile"
